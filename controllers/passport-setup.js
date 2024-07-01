@@ -1,7 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/userModel");
-const dotenv = require("dotenv"); // Adjust the path as necessary
+const dotenv = require("dotenv");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
 
@@ -13,7 +13,7 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
-      // Here, use the profile info (mainly profile.id) to check if the user is registered in your db
+      // Here, use the profile info (mainly profile.id) to check if the user is registered in  db
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
         // If user exists, proceed to login

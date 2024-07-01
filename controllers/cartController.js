@@ -372,7 +372,7 @@ const decrementOrIncrementCart = async (req, res) => {
   try {
     const cartId = req.body.cartId;
     const itemId = req.body.itemId;
-    const value = parseInt(req.body.value); // Parse value to integer
+    const value = parseInt(req.body.value);
 
     const cartDoc = await Cart.findOne({ _id: cartId });
     const item = cartDoc.item.find((i) => i._id.toString() === itemId);
@@ -395,7 +395,7 @@ const decrementOrIncrementCart = async (req, res) => {
         { _id: cartId },
         { $pull: { item: { _id: new ObjectId(item._id) } } }
       );
-      updatedPrice = 0; // Set price to 0 if removing item
+      updatedPrice = 0;
     } else {
       updatedPrice = updatedQuantity * product.price; // Calculate price based on updated quantity
     }

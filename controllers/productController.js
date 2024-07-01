@@ -1,5 +1,4 @@
 const Products = require("../models/productModel");
-
 const Categories = require("../models/categoryModel");
 const { ObjectId } = require("mongodb");
 
