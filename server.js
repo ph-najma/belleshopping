@@ -11,6 +11,7 @@ const adminRouter = require("./route/adminRoute");
 const cartRouter = require("./route/cartRoute");
 const productRouter = require("./route/productRoutes");
 const Products = require("./models/productModel");
+const User = require("./models/userModel");
 const mongoose = require("mongoose");
 const passport = require("passport");
 
